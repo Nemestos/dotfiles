@@ -11,7 +11,6 @@ _:
 
     settings = {
       window_padding_width = 8;
-      hide_window_decorations = "titlebar-only";
 
       cursor_shape = "beam";
       cursor_blink_interval = 0;

@@ -1,6 +1,5 @@
 {
   description = "Nix config multi-host";
-
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     nix-darwin = {
@@ -11,14 +10,18 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-
   outputs =
     inputs@{
       self,
       nix-darwin,
       nixpkgs,
       home-manager,
+      sops-nix,
     }:
     {
       darwinConfigurations."nemestos-macbook" = nix-darwin.lib.darwinSystem {
@@ -29,6 +32,7 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
+              extraSpecialArgs = { inherit inputs; };
               users.nemestos = import ./home/default.nix;
             };
           }
