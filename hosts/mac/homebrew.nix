@@ -7,6 +7,7 @@
       "raycast"
       "cursor"
       "vivaldi"
+      "ultimaker-cura"
     ];
     onActivation = {
       cleanup = "zap";

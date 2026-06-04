@@ -7,30 +7,30 @@
 
     profiles.default = {
       userSettings = {
-        "editor.fontSize"        = 14;
-        "editor.formatOnSave"    = true;
-        "editor.tabSize"         = 2;
-        "editor.fontFamily"      = "'Hack Nerd Font', monospace";
-        "editor.cursorBlinking"  = "smooth";
+        "editor.fontSize" = 14;
+        "editor.formatOnSave" = true;
+        "editor.tabSize" = 2;
+        "editor.fontFamily" = "'Hack Nerd Font', monospace";
+        "editor.cursorBlinking" = "smooth";
         "editor.minimap.enabled" = false;
 
         "terminal.integrated.fontSize" = 13;
-        "terminal.integrated.defaultProfile.osx"   = lib.mkIf pkgs.stdenv.isDarwin "fish";
+        "terminal.integrated.defaultProfile.osx" = lib.mkIf pkgs.stdenv.isDarwin "fish";
         "terminal.integrated.defaultProfile.linux" = lib.mkIf pkgs.stdenv.isLinux "fish";
 
-        "workbench.colorTheme"       = "Catppuccin Macchiato";
-        "workbench.iconTheme"        = "catppuccin-macchiato";
-        "workbench.startupEditor"    = "none";
+        "workbench.colorTheme" = "Catppuccin Macchiato";
+        "workbench.iconTheme" = "catppuccin-macchiato";
+        "workbench.startupEditor" = "none";
         "workbench.sideBar.location" = "right";
 
         "nix.enableLanguageServer" = true;
-        "nix.serverPath"           = "nixd";
+        "nix.serverPath" = "nixd";
         "nix.serverSettings".nixd.formatting.command = [ "nixfmt" ];
 
-        "explorer.confirmDelete"           = false;
-        "explorer.confirmDragAndDrop"      = false;
-        "git.autofetch"                    = true;
-        "telemetry.telemetryLevel"         = "off";
+        "explorer.confirmDelete" = false;
+        "explorer.confirmDragAndDrop" = false;
+        "git.autofetch" = true;
+        "telemetry.telemetryLevel" = "off";
         "security.workspace.trust.enabled" = false;
       };
 

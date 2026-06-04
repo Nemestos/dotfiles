@@ -2,6 +2,7 @@
 {
   imports = [
     ./default.nix
+    ../modules/cura.nix
   ];
 
   home = {

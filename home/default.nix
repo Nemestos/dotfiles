@@ -2,7 +2,6 @@
   pkgs,
   config,
   inputs,
-  lib,
   ...
 }:
 {
@@ -29,7 +28,7 @@
       # nix tooling
       alejandra
       nixd
-      nixfmt-rfc-style
+      nixfmt
       statix
       deadnix
 
