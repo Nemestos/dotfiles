@@ -13,6 +13,10 @@
         "editor.fontFamily" = "'Hack Nerd Font', monospace";
         "editor.cursorBlinking" = "smooth";
         "editor.minimap.enabled" = false;
+        "terminal.integrated.fontFamily" = "'Hack Nerd Font'";
+        "terminal.integrated.env.osx" = {
+          "TERM" = "xterm-256color";
+        };
 
         "terminal.integrated.fontSize" = 13;
         "terminal.integrated.defaultProfile.osx" = lib.mkIf pkgs.stdenv.isDarwin "fish";
