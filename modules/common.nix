@@ -12,6 +12,7 @@
     fzf
     jq
     nixfmt
+    nixd
     statix
     deadnix
     sops
