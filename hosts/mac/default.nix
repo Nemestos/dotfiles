@@ -1,6 +1,10 @@
 { pkgs, ... }:
 {
-  imports = [ ../../modules/common.nix ];
+  imports = [
+    ../../modules/common.nix
+    ./system.nix
+    ./homebrew.nix
+  ];
 
   nix = {
     enable = false;
@@ -10,44 +14,9 @@
     ];
   };
 
-  nixpkgs.hostPlatform = "aarch64-darwin";
-
-  system = {
-    stateVersion = 6;
-    configurationRevision = null;
-    primaryUser = "nemestos";
-    defaults = {
-      dock = {
-        autohide = true;
-        show-recents = false;
-        minimize-to-application = true;
-      };
-      finder = {
-        AppleShowAllExtensions = true;
-        FXEnableExtensionChangeWarning = false;
-        QuitMenuItem = true;
-        ShowPathbar = true;
-        ShowStatusBar = true;
-	AppleShowAllFiles = true;
-      };
-      NSGlobalDomain = {
-        AppleInterfaceStyle = "Dark";
-        AppleShowAllExtensions = true;
-        KeyRepeat = 2;
-        InitialKeyRepeat = 15;
-        ApplePressAndHoldEnabled = false;
-        NSAutomaticSpellingCorrectionEnabled = false;
-        NSAutomaticCapitalizationEnabled = false;
-        NSAutomaticDashSubstitutionEnabled = false;
-        NSAutomaticQuoteSubstitutionEnabled = false;
-      };
-      trackpad = {
-        Clicking = true;
-        TrackpadThreeFingerDrag = true;
-      };
-      screencapture.location = "~/Desktop";
-      screensaver.askForPasswordDelay = 10;
-    };
+  nixpkgs = {
+    hostPlatform = "aarch64-darwin";
+    config.allowUnfree = true;
   };
 
   users.users.nemestos = {
@@ -58,20 +27,4 @@
   programs.fish.enable = true;
 
   fonts.packages = with pkgs; [ nerd-fonts.hack ];
-
-  homebrew = {
-    enable = true;
-    casks = [
-      "shottr"
-      "raycast"
-      "cursor"
-      "discord"
-      "vivaldi"
-    ];
-    onActivation = {
-      cleanup = "zap";
-      autoUpdate = true;
-      extraFlags = [ "--force" ];
-    };
-  };
 }
