@@ -36,6 +36,8 @@
         "git.autofetch" = true;
         "telemetry.telemetryLevel" = "off";
         "security.workspace.trust.enabled" = false;
+
+        "json.schemaDownload.enable" = true;
       };
 
       extensions = with pkgs.vscode-marketplace; [
