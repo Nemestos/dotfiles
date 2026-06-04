@@ -10,6 +10,7 @@
         autohide = true;
         show-recents = false;
         minimize-to-application = true;
+        expose-group-apps = true;
       };
 
       finder = {
