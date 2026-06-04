@@ -28,6 +28,7 @@
         QuitMenuItem = true;
         ShowPathbar = true;
         ShowStatusBar = true;
+	AppleShowAllFiles = true;
       };
       NSGlobalDomain = {
         AppleInterfaceStyle = "Dark";
@@ -63,7 +64,14 @@
     casks = [
       "shottr"
       "raycast"
+      "cursor"
+      "discord"
+      "vivaldi"
     ];
-    onActivation.autoUpdate = true;
+    onActivation = {
+      cleanup = "zap";
+      autoUpdate = true;
+      extraFlags = [ "--force" ];
+    };
   };
 }
