@@ -9,6 +9,7 @@
       "vivaldi"
       "ultimaker-cura"
       "discord"
+      "obsidian"
     ];
     onActivation = {
       cleanup = "zap";
