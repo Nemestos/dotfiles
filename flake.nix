@@ -53,9 +53,10 @@
         ];
       };
 
-      nixosConfigurations."nemestos-nixos" = nixpkgs.lib.nixosSystem {
+      nixosConfigurations."nemestos-wsl" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
+          "${nixpkgs}/nixos/modules/profiles/minimal.nix"
           ./hosts/nixos/default.nix
           home-manager.nixosModules.home-manager
           {
