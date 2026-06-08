@@ -13,12 +13,40 @@
         "editor.fontFamily" = "'Hack Nerd Font', monospace";
         "editor.cursorBlinking" = "smooth";
         "editor.minimap.enabled" = false;
+
+        "editor.defaultFormatter" = "biomejs.biome";
+        "editor.codeActionsOnSave" = {
+          "source.organizeImports.biome" = "explicit";
+          "source.fixAll.biome" = "explicit";
+        };
+
+        "[typescript]" = {
+          "editor.defaultFormatter" = "biomejs.biome";
+        };
+        "[typescriptreact]" = {
+          "editor.defaultFormatter" = "biomejs.biome";
+        };
+        "[javascript]" = {
+          "editor.defaultFormatter" = "biomejs.biome";
+        };
+        "[javascriptreact]" = {
+          "editor.defaultFormatter" = "biomejs.biome";
+        };
+        "[json]" = {
+          "editor.defaultFormatter" = "biomejs.biome";
+        };
+        "[jsonc]" = {
+          "editor.defaultFormatter" = "biomejs.biome";
+        };
+        "[nix]" = {
+          "editor.defaultFormatter" = "jnoortheen.nix-ide";
+        };
+
         "terminal.integrated.fontFamily" = "'Hack Nerd Font'";
+        "terminal.integrated.fontSize" = 13;
         "terminal.integrated.env.osx" = {
           "TERM" = "xterm-256color";
         };
-
-        "terminal.integrated.fontSize" = 13;
         "terminal.integrated.defaultProfile.osx" = lib.mkIf pkgs.stdenv.isDarwin "fish";
         "terminal.integrated.defaultProfile.linux" = lib.mkIf pkgs.stdenv.isLinux "fish";
 
@@ -37,7 +65,22 @@
         "telemetry.telemetryLevel" = "off";
         "security.workspace.trust.enabled" = false;
 
-        "json.schemaDownload.enable" = true;
+        "json.schemaDownload.trustedDomains" = {
+          "https://biomejs.dev" = true;
+          "https://developer.microsoft.com/json-schemas/" = true;
+          "https://json-schema.org/" = true;
+          "https://json.schemastore.org/" = true;
+          "https://raw.githubusercontent.com/devcontainers/spec/" = true;
+          "https://raw.githubusercontent.com/microsoft/vscode/" = true;
+          "https://schemastore.azurewebsites.net/" = true;
+          "https://www.schemastore.org/" = true;
+        };
+        "github.copilot.chat.commitMessageGeneration.instructions" = [
+          {
+            "text" =
+              "Always use Conventional Commits format: <type>(<scope>): <description>. Types: feat, fix, chore, docs, style, refactor, test, perf. Keep description short and in lowercase.";
+          }
+        ];
       };
 
       extensions = with pkgs.vscode-marketplace; [
@@ -45,7 +88,7 @@
         catppuccin.catppuccin-vsc
         catppuccin.catppuccin-vsc-icons
         eamodio.gitlens
-        esbenp.prettier-vscode
+        biomejs.biome
         usernamehw.errorlens
         mkhl.direnv
         christian-kohler.path-intellisense

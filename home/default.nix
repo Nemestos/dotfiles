@@ -40,7 +40,6 @@
       gh
       htop
       tree
-      discord
     ];
 
     sessionVariables = {

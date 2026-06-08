@@ -8,6 +8,7 @@
       "cursor"
       "vivaldi"
       "ultimaker-cura"
+      "discord"
     ];
     onActivation = {
       cleanup = "zap";
