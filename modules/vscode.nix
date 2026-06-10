@@ -1,4 +1,8 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  ...
+}:
 {
   programs.vscode = {
     enable = true;
@@ -40,6 +44,18 @@
         };
         "[nix]" = {
           "editor.defaultFormatter" = "jnoortheen.nix-ide";
+        };
+        "python.defaultInterpreterPath" = "python";
+        "python.venvPath" = ".devenv/profile";
+        "python.terminal.activateEnvironment" = true;
+        "python.formatting.provider" = "none";
+        "[python]" = {
+          "editor.defaultFormatter" = "charliermarsh.ruff";
+          "editor.formatOnSave" = true;
+          "editor.codeActionsOnSave" = {
+            "source.fixAll.ruff" = "explicit";
+            "source.organizeImports.ruff" = "explicit";
+          };
         };
 
         "terminal.integrated.fontFamily" = "'Hack Nerd Font'";
@@ -84,6 +100,9 @@
               "Always generate a SINGLE commit message for all staged changes. Use Conventional Commits format: <type>(<scope>): <description>. Types: feat, fix, chore, docs, style, refactor, test, perf. Use imperative mood ('add', 'fix', not 'added', 'fixed'). Keep the subject line under 72 characters, lowercase, no trailing period. Only add a body if the subject line cannot fully describe the changes, separated by a blank line. Always write in English.";
           }
         ];
+        "workbench.tips.enabled" = false;
+        "workbench.editor.empty.hint" = "hidden";
+        "editor.experimental.askBeforeEmptying" = false;
       };
 
       extensions = with pkgs.vscode-marketplace; [
@@ -95,6 +114,9 @@
         usernamehw.errorlens
         christian-kohler.path-intellisense
         datakurre.devenv
+        ms-python.python
+        ms-python.vscode-pylance
+        charliermarsh.ruff
       ];
     };
   };
