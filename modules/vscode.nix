@@ -81,7 +81,7 @@
         "github.copilot.chat.commitMessageGeneration.instructions" = [
           {
             "text" =
-              "Always generate a SINGLE commit message for all staged changes. Use Conventional Commits format: <type>(<scope>): <description>. Types: feat, fix, chore, docs, style, refactor, test, perf. Keep description short and in lowercase. Add a body to summarize individual changes if needed, separated by a blank line.";
+              "Always generate a SINGLE commit message for all staged changes. Use Conventional Commits format: <type>(<scope>): <description>. Types: feat, fix, chore, docs, style, refactor, test, perf. Use imperative mood ('add', 'fix', not 'added', 'fixed'). Keep the subject line under 72 characters, lowercase, no trailing period. Only add a body if the subject line cannot fully describe the changes, separated by a blank line. Always write in English.";
           }
         ];
       };
