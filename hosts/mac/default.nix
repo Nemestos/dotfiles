@@ -5,6 +5,9 @@
     ./system.nix
     ./homebrew.nix
   ];
+  system.activationScripts.postActivation.text = ''
+    chsh -s /run/current-system/sw/bin/fish nemestos
+  '';
 
   nix = {
     enable = false;

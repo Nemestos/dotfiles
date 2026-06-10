@@ -3,9 +3,13 @@
 {
   programs.fish = {
     enable = true;
+    shellInit = ''
+      set -gx SHELL /run/current-system/sw/bin/fish
+    '';
 
     interactiveShellInit = ''
       set -g fish_greeting ""
+      devenv hook fish | source
     '';
 
     shellAliases = {

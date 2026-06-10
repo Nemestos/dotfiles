@@ -46,6 +46,7 @@
         "terminal.integrated.fontSize" = 13;
         "terminal.integrated.env.osx" = {
           "TERM" = "xterm-256color";
+          "SHELL" = "/run/current-system/sw/bin/fish";
         };
         "terminal.integrated.defaultProfile.osx" = lib.mkIf pkgs.stdenv.isDarwin "fish";
         "terminal.integrated.defaultProfile.linux" = lib.mkIf pkgs.stdenv.isLinux "fish";
@@ -74,11 +75,13 @@
           "https://raw.githubusercontent.com/microsoft/vscode/" = true;
           "https://schemastore.azurewebsites.net/" = true;
           "https://www.schemastore.org/" = true;
+          "https://turbo.build/" = true;
+          "https://unpkg.com" = true;
         };
         "github.copilot.chat.commitMessageGeneration.instructions" = [
           {
             "text" =
-              "Always use Conventional Commits format: <type>(<scope>): <description>. Types: feat, fix, chore, docs, style, refactor, test, perf. Keep description short and in lowercase.";
+              "Always generate a SINGLE commit message for all staged changes. Use Conventional Commits format: <type>(<scope>): <description>. Types: feat, fix, chore, docs, style, refactor, test, perf. Keep description short and in lowercase. Add a body to summarize individual changes if needed, separated by a blank line.";
           }
         ];
       };
@@ -90,8 +93,8 @@
         eamodio.gitlens
         biomejs.biome
         usernamehw.errorlens
-        mkhl.direnv
         christian-kohler.path-intellisense
+        datakurre.devenv
       ];
     };
   };
