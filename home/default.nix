@@ -40,6 +40,11 @@
       gh
       htop
       tree
+
+      nodejs_latest
+      python314
+      pnpm
+      python3Packages.pip
     ];
 
     sessionVariables = {
