@@ -11,6 +11,9 @@
         show-recents = false;
         minimize-to-application = true;
         expose-group-apps = true;
+        mru-spaces = false;
+        autohide-delay = 0.0;
+        autohide-time-modifier = 0.5;
       };
 
       finder = {
@@ -20,6 +23,10 @@
         ShowPathbar = true;
         ShowStatusBar = true;
         AppleShowAllFiles = true;
+        FXPreferredViewStyle = "clmv";
+        NewWindowTarget = "Home";
+        _FXShowPosixPathInTitle = true;
+        FXDefaultSearchScope = "SCcf";
       };
 
       NSGlobalDomain = {
@@ -32,6 +39,9 @@
         NSAutomaticCapitalizationEnabled = false;
         NSAutomaticDashSubstitutionEnabled = false;
         NSAutomaticQuoteSubstitutionEnabled = false;
+        NSDocumentSaveNewDocumentsToCloud = false;
+        AppleShowScrollBars = "Always";
+        NSWindowResizeTime = 0.001;
       };
 
       trackpad = {
@@ -41,6 +51,19 @@
 
       screencapture.location = "~/Desktop";
       screensaver.askForPasswordDelay = 10;
+
+      CustomSystemPreferences = {
+        "com.apple.Accessibility" = {
+          ReduceMotionEnabled = 1;
+        };
+        "com.apple.spaces" = {
+          "spans-displays" = false;
+        };
+        "com.apple.desktopservices" = {
+          DSDontWriteNetworkStores = true;
+          DSDontWriteUSBStores = true;
+        };
+      };
     };
   };
 }

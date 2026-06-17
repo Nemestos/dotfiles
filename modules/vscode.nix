@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }:
 {
@@ -74,8 +75,14 @@
 
         "nix.enableLanguageServer" = true;
         "nix.serverPath" = "nixd";
-        "nix.serverSettings".nixd.formatting.command = [ "nixfmt" ];
-
+        "nix.serverSettings".nixd = {
+          formatting.command = [ "nixfmt" ];
+          options = lib.mkIf pkgs.stdenv.isDarwin {
+            "nix-darwin" = {
+              expr = "(builtins.getFlake \"${config.home.homeDirectory}/.config/nix\").darwinConfigurations.\"nemestos-macbook\".options";
+            };
+          };
+        };
         "explorer.confirmDelete" = false;
         "explorer.confirmDragAndDrop" = false;
         "git.autofetch" = true;
