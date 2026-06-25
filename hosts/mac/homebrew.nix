@@ -10,6 +10,7 @@
       "ultimaker-cura"
       "discord"
       "obsidian"
+      "nordvpn"
     ];
     onActivation = {
       cleanup = "zap";
