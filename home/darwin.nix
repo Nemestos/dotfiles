@@ -3,7 +3,6 @@
   imports = [
     ./default.nix
     ../modules/cura.nix
-    ../modules/syncthing.nix
   ];
 
   home = {
